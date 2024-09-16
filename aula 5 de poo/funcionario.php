@@ -62,14 +62,10 @@ class Alunos {
 	}
 
 	function estudar($aluno, $turma) {
-		$turma->alunos[] = $aluno;
 		echo "O aluno: " . $aluno . " da turma: " . $turma->serie . ", está estudando na sala: '" . $turma->sala . "'";
 	}
-	function apresentar($aluno, $turma, $materia, $modulos, $horario) {
-		$turma->alunos[] = $aluno;
-		$cursos->materia = $materia;
-		$cursos->modulos = $modulos;
-		echo "O aluno: ". $aluno. " da turma ". $turma->serie. " terá que apresentar um trabalho de: ". $cursos->materia. " do modulo". $cursos->modulos. " no horário: ". $horario;
+	function apresentar($aluno, $curso,$turma, $horario){
+		echo "o aluno ". $aluno. " terá que apresentar um trabalho de ". $curso->materia. " às ". $horario. "hrs";
 	}
 }
 
@@ -122,6 +118,10 @@ class Funcionario {
 		$turma->alunos[] = $aluno;
 		echo $aluno . " cadastrado na turma " . $turma->serie;
 	}
+	
+	function addAluno($aluno, $turma){
+		
+	}
 }
 
 class Professor extends Funcionario {
@@ -137,9 +137,10 @@ $aluno1 = new Alunos();
 $aluno2 = new Alunos();
 $curso1 = new cursos();
 
-// Área de mostrar as coisas
-$func1->cadastrarAluno("Davi", $turma1). "\n". $func1->baterPonto(12);
+//Área de mostrar as coisas
+$func1->cadastrarAluno("Davi", $turma1). $func1->baterPonto(12);
 echo "\n";
 $aluno1->estudar("Pipo", $turma1);
-$aluno2->apresentar("pedro", "Portugues", $turma1, $curso1, 2, 13);
+echo "\n";
+$aluno2->apresentar("Ronaldo",$curso1 ,$turma1, 12);
 echo "\n";
