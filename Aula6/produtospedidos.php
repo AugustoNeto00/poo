@@ -19,7 +19,7 @@ class Products {
 	}
 }
 class Order {
-	private $product = [];
+	private $product = []; // This allows me to store multiple products in the array and manage them efficiently.
 	function getName() {
 		if (!empty($this->product)) {
 			return $this->product[0]->getName();
@@ -27,20 +27,16 @@ class Order {
 			echo "Don't have products in there...";
 		}
 	}
-    function getPrice(){
-        return $this->price;
-    }
     
-	//Here, i do a array to put the products, but i don't even know how to do that but i'm trying.
-	function addProducts(products $product) {
+		function addProducts(products $product) {
 		//Put the damn arg here!!
 		$this->product[] = $product;
-		print_r("You have put a product: ".$this->getName(). " in your cart.");
+		print_r("You have put a product: ".$this->getName(). " in your cart.". $this->getPrice());
 	}
-    function calcPrice($pricet){
-        $pricet = $this->getPrice() + $this->getPrice();
-        return $pricet / $pricet;
-    }
+    #function calcPrice($pricet){
+        #$pricet = $this->getPrice() + $this->getPrice();
+        #return $pricet / $pricet;
+    #}
 }
 
 $teste = new Products("maça", 12);
